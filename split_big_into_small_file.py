@@ -1,3 +1,4 @@
+'''This is used to split a big file into many small file'''
 import sys,os
 
 kilobytes = 1024
@@ -24,9 +25,9 @@ def split(fromfile,todir,chunksize=chunksize):
         fileobj.close()
     return partnum
 if __name__=='__main__':
-        fromfile  = r'D:\rm\data_raw\c_export_all.csv'
-        todir     = r'D:\rm\1013\data'
-        chunksize = int(100000000)
+        fromfile  = r'D:\rm\data_raw\c_export_all.csv' #The file that you need to be splited
+        todir     = r'D:\rm\1013\data' #The path where to store those splited small files
+        chunksize = int(100000000) #max size of a small file, 100000000 is around 100M 
         absfrom,absto = map(os.path.abspath,[fromfile,todir])
         print('Splitting',absfrom,'to',absto,'by',chunksize)
         try:
